@@ -10,17 +10,19 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:markdown-code-tools.helloWorld"
+    "onCommand:markdown-code-tools.makeLineNumber"
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "keybindings":[
       {
-        "command": "markdown-code-tools.helloWorld",
-        "title": "Hello World"
+        "command": "markdown-code-tools.makeLineNumber",
+        "key": "ctrl+f1",
+        "mac":"cmd+f1",
+        "when": "editorTextFocus"
       }
     ]
-  },
+    },
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
