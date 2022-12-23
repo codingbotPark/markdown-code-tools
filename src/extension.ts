@@ -1,22 +1,22 @@
 import * as vscode from 'vscode';
+import { makeLineNumberFn } from './service/makeLineNumberFn';
 
+// // 구역의 앞부분에 숫자를 만들어 준다
+// function makeLineNumberFn(start: vscode.Position, end: vscode.Position, editor: vscode.TextEditor) {
+// 	let invalidRange = new vscode.Range(start,end);
+// 	let replacedArr:string[] = []
 
-// 구역의 앞부분에 숫자를 만들어 준다
-function makeLineNumberFn(start: vscode.Position, end: vscode.Position, editor: vscode.TextEditor) {
-	let invalidRange = new vscode.Range(start,end);
-	let replacedArr:string[] = []
+// 	for(let i = start.line, counter=1
+// 		;i<=end.line;
+// 		i++,counter++){
+// 			replacedArr.push(`${counter}  ${editor.document.lineAt(i).text}${i===end.line?"":"\n"}`)
+// 	}
 
-	for(let i = start.line, counter=1
-		;i<=end.line;
-		i++,counter++){
-			replacedArr.push(`${counter}  ${editor.document.lineAt(i).text}${i===end.line?"":"\n"}`)
-	}
+// 	editor.edit(eb => {
+// 		eb.replace(invalidRange,replacedArr.join(""))
+// 	})
 
-	editor.edit(eb => {
-		eb.replace(invalidRange,replacedArr.join(""))
-	})
-
-}
+// }
 
 export function activate(context: vscode.ExtensionContext) {
 	// console.log('Congratulations, your extension "markdown-code-tools" is now active!');
