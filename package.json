@@ -11,7 +11,8 @@
   ],
   "activationEvents": [
     "onCommand:markdown-code-tools.makeLineNumber",
-    "onCommand:markdown-code-tools.removeLineNumber"
+    "onCommand:markdown-code-tools.removeLineNumber",
+    "onCommand:markdown-code-tools.strongerCode"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -25,6 +26,11 @@
         "command": "markdown-code-tools.removeLineNumber",
         "key": "ctrl+shift+f1",
         "mac":"cmd+shift+f1",
+        "when": "editorTextFocus"
+      },{
+        "command": "markdown-code-tools.strongerCode",
+        "key": "ctrl+f2",
+        "mac": "cmd+f2",
         "when": "editorTextFocus"
       }
     ],

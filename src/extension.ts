@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
-import { makeLineNumberFn,removeLineNumberFn } from './service/lineFn';
+import { makeLineNumberFn, removeLineNumberFn } from './service/lineFn';
+import { makeStrongCodeFn } from './service/StrongerFn';
 
 // 에디터를 가져오는 함수는 중복되기 때문에
-function getEditor(){
+function getEditor() {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showErrorMessage("Editor Does Not Working")
@@ -27,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	// removeLine
-	let removeLineNumber = vscode.commands.registerCommand('markdown-code-tools.removeLineNumber',() => {
+	let removeLineNumber = vscode.commands.registerCommand('markdown-code-tools.removeLineNumber', () => {
 		editor.selections.forEach(selection => {
 			removeLineNumberFn(
 				selection.start,
@@ -37,7 +38,17 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	})
 
-	context.subscriptions.push(makeLineNumber,removeLineNumber);
+	let strongerCode = vscode.commands.registerCommand('markdown-code-tools.strongerCode',() => {
+		editor.selections.forEach(selection =>{
+			makeStrongCodeFn(
+				selection.start,
+				selection.end,
+				editor
+			)
+		})
+	})
+
+	context.subscriptions.push(makeLineNumber, removeLineNumber,strongerCode);
 
 
 }
