@@ -16,36 +16,38 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "keybindings":[
+    "keybindings": [
       {
         "command": "markdown-code-tools.makeLineNumber",
         "key": "ctrl+f1",
-        "mac":"cmd+f1",
+        "mac": "cmd+f1",
         "when": "editorTextFocus"
-      },{
+      },
+      {
         "command": "markdown-code-tools.removeLineNumber",
         "key": "ctrl+shift+f1",
-        "mac":"cmd+shift+f1",
+        "mac": "cmd+shift+f1",
         "when": "editorTextFocus"
-      },{
+      },
+      {
         "command": "markdown-code-tools.strongerCode",
         "key": "ctrl+f2",
         "mac": "cmd+f2",
         "when": "editorTextFocus"
       }
     ],
-    "configuration":{
+    "configuration": {
       "title": "markdown code tools",
       "properties": {
-        "markdown-code-tools.gapOfLineNumber":{
-          "type":"string",
-          "default":"  ",
-          "markdownDescription":"you can set gap of lineNumber - code, furthermore you can set char that will be between line-code(default is space*2 ('  '))\n\n라인번호와 코드 사이의 간격을 설정할 수 있습니다, 이를 통해 라인번호와 코드 사이에 특정 문자를 추가하여 사용할 수도 있습니다!, 기본적으로 띄어쓰기 * 2가 적용되어 있습니다, 변경에 따른 버그가 있을 수 있습니다",
+        "markdown-code-tools.gapOfLineNumber": {
+          "type": "string",
+          "default": "  ",
+          "markdownDescription": "you can set gap of lineNumber - code, furthermore you can set char that will be between line-code(default is space*2 ('  '))\n\n라인번호와 코드 사이의 간격을 설정할 수 있습니다, 이를 통해 라인번호와 코드 사이에 특정 문자를 추가하여 사용할 수도 있습니다!, 기본적으로 띄어쓰기 * 2가 적용되어 있습니다, 변경에 따른 버그가 있을 수 있습니다",
           "definitions": "you can set gap of lineNumber - code, furthermore you can set char that will be between line-code"
         }
       }
     }
-    },
+  },
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
@@ -58,19 +60,22 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
     "eslint": "^8.28.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
-    "typescript": "^4.9.3",
     "ts-loader": "^9.4.1",
+    "typescript": "^4.9.3",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0",
-    "@vscode/test-electron": "^2.2.0"
+    "webpack-cli": "^5.0.0"
+  },
+  "dependencies": {
+    "prettier": "^2.8.2"
   }
 }
